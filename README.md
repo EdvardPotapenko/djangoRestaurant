@@ -1,2 +1,2 @@
-# djangoRestoraunt
-python django restoraunt project
+# djangoRestaurant
+python django restaurant project
