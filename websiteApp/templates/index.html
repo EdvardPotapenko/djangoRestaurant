@@ -2,22 +2,25 @@
 
 
 {% block content %}
-    <h2 class="text-center">Меню</h2>
     <div class="container">
-        <div class="row">
-            {% for item in categories %}
-                <div class="col-4">
-                    <h4 class="text-center">{{ item.title }}</h4>
-                    {% for dish in item.dishes %}
-                        <div class="col-12">
-                            <h6>{{ dish.title }}</h6>
-                            <p>{{ dish.description }}</p>
-                            <p>{{ dish.price }}&#x20B4;</p>
-                            <img src="{{ dish.photo.url }}" class="img-fluid" alt="Responsive image">
+        <h1 id="Menu" class="text-center text-uppercase">Menu</h1>
+        <hr>
+        {% for item in categories %}
+            <div class="row justify-content-center mt-2 mb-2">
+                <h2 class="text-center text-uppercase">{{ item.title }}</h2>
+                {% for dish in item.dishes %}
+                    <div class="col-4">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{ dish.photo.url }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ dish.title }}</h5>
+                                <p class="card-text">{{ dish.description }}</p>
+                                <p><strong>{{ dish.price }}&#x20B4;</strong></p>
+                            </div>
                         </div>
-                    {% endfor %}
-                </div>
-            {% endfor %}
-        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
