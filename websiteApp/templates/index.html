@@ -3,24 +3,78 @@
 
 {% block content %}
     <div class="container">
-        <h1 id="Menu" class="text-center text-uppercase">Menu</h1>
-        <hr>
-        {% for item in categories %}
+
+    <!--
+        <section>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h1 id="Events" class="text-center text-uppercase">Events</h1>
+                    <div class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for event in events %}
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="{{ event.photo.url }}" alt="{{ event.title }}">
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+-->
+        <section>
+            <h1 id="Menu" class="text-center text-uppercase">Menu</h1>
+            <hr>
             <div class="row justify-content-center mt-2 mb-2">
-                <h2 class="text-center text-uppercase">{{ item.title }}</h2>
-                {% for dish in item.dishes %}
-                    <div class="col-4">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="{{ dish.photo.url }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ dish.title }}</h5>
-                                <p class="card-text">{{ dish.description }}</p>
-                                <p><strong>{{ dish.price }}&#x20B4;</strong></p>
+                {% for item in categories %}
+                    <h2 class="text-center text-uppercase">{{ item.title }}</h2>
+                    {% for dish in item.dishes %}
+                        <div class="col-4">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="{{ dish.photo.url }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ dish.title }}</h5>
+                                    <p class="card-text">{{ dish.description }}</p>
+                                    <p><strong>{{ dish.price }}&#x20B4;</strong></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 {% endfor %}
             </div>
-        {% endfor %}
+        </section>
+
+        <section>
+            <h1 id="Menu" class="text-center text-uppercase">Special Offers</h1>
+            <hr>
+            {% for item in special_categories %}
+                <div class="row justify-content-center mt-2 mb-2">
+                    <h2 class="text-center text-uppercase">{{ item.title }}</h2>
+                    {% for dish in item.dishes %}
+                        <div class="col-4">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="{{ dish.photo.url }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ dish.title }}</h5>
+                                    <p class="card-text">{{ dish.description }}</p>
+                                    <p><strong>{{ dish.price }}&#x20B4;</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </section>
     </div>
+
 {% endblock %}

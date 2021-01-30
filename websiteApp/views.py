@@ -1,11 +1,18 @@
 from django.shortcuts import render
-from .models import Category, Dish
+from .models import Category, Dish, Event
 
 # Create your views here.
 
 
 def main(request):
-    categories = Category.objects.filter(is_visible=True).order_by('category_order')
+
+    events = Event.objects.all()
+
+    special_categories = Category.objects.filter(is_visible=True, is_special=True).order_by('category_order')
+    for category in special_categories:
+        category.dishes = Dish.objects.filter(category=category.pk)
+
+    categories = Category.objects.filter(is_visible=True, is_special=False).order_by('category_order')
     for category in categories:
         category.dishes = Dish.objects.filter(category=category.pk)
-    return render(request, 'index.html', context={'categories': categories})
+    return render(request, 'index.html', context={'categories': categories, 'special_categories': special_categories, 'events': events})

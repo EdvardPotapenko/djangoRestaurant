@@ -30,3 +30,21 @@ class Dish(models.Model):
 
     def __str__(self):
         return f'{self.title} : {self.category}'
+
+
+class Event(models.Model):
+
+    def get_file_name_events(self, filename):
+        ext = filename.split('.')[-1]
+        filename = f'{uuid4()}​​.{ext}'
+        return os.path.join('images/events/', filename)
+
+    title = models.CharField(max_length=50)
+    description = models.TextField(null=True)
+    photo = models.ImageField(upload_to=get_file_name_events)
+    event_date = models.DateField()
+    event_time = models.TimeField(null=True)
+    price = models.DecimalField(max_digits=7, decimal_places=2, null=True)
+
+    def __str__(self):
+        return f'{self.title} : {self.event_date}'
