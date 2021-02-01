@@ -44,6 +44,7 @@ class Event(models.Model):
     photo = models.ImageField(upload_to=get_file_name_events)
     event_date = models.DateField()
     event_time = models.TimeField(null=True)
+    is_visible = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=7, decimal_places=2, null=True)
 
     def __str__(self):

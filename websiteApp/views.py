@@ -6,7 +6,7 @@ from .models import Category, Dish, Event
 
 def main(request):
 
-    events = Event.objects.all()
+    events = Event.objects.filter(is_visible=True)
 
     special_categories = Category.objects.filter(is_visible=True, is_special=True).order_by('category_order')
     for category in special_categories:
