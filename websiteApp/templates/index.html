@@ -70,7 +70,9 @@
                             <div class="card">
                                 <img class="card-img-top" src="{{ dish.photo.url }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ dish.title }}</h5>
+                                    <h5 class="card-title">
+                                        <a href="/Menu/{{ dish.pk }}">{{ dish.title }}</a>
+                                    </h5>
                                     <p class="card-text">{{ dish.description }}</p>
                                     <p><strong>{{ dish.price }}&#x20B4;</strong></p>
                                 </div>
@@ -92,7 +94,9 @@
                             <div class="card">
                                 <img class="card-img-top" src="{{ dish.photo.url }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ dish.title }}</h5>
+                                    <h5 class="card-title">
+                                        <a href="/Menu/{{ dish.pk }}"> {{ dish.title }} </a>
+                                    </h5>
                                     <p class="card-text">{{ dish.description }}</p>
                                     <p><strong>{{ dish.price }}&#x20B4;</strong></p>
                                 </div>
