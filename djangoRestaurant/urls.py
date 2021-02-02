@@ -21,6 +21,7 @@ from djangoRestaurant import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('websiteApp.urls')),
+    path('Menu/', include('menu_linguini.urls')),
 ]
 
 if settings.DEBUG:
