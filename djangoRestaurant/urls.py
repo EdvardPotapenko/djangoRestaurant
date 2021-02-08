@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('websiteApp.urls')),
     path('Menu/', include('menu_linguini.urls')),
+    path('', include('userMessages.urls'))
 ]
 
 if settings.DEBUG:
