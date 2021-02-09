@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'websiteApp.apps.WebsiteappConfig',
     'menu_linguini',
-    'userMessages'
+    'userMessages',
+    'accounts'
 ]
 
 MIDDLEWARE = [
