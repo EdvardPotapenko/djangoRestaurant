@@ -92,8 +92,9 @@ DATABASES = {
         'PASSWORD': DB_PASSWORD,
         'HOST': DB_HOST,
         'PORT': '5432',
-    }​​
-}​​
+    }
+}
+
 
 import dj_database_url
 db = dj_database_url.config()
